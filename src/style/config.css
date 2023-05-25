@@ -14,14 +14,10 @@ a {
     text-decoration: none;
 }
 
-body {
-    background: #1F1F26;
-}
-
 #root {
     display: flex;
     flex-direction: column;
-    background: #000;
+    background: #1F1F26;
     position: relative;
     width: 100vw;
     height: 100vh;

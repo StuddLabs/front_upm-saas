@@ -5,6 +5,7 @@ import {
 } from 'react-router-dom';
 
 import Page_name from './pages/default';
+import Mobile_Table from './pages/Mobile_Table';
 
 
 type AppProps = {
@@ -21,6 +22,7 @@ function App(props: AppProps) {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Page_name />} />
+        <Route path="/Mobile_Table" element={<Mobile_Table />} />
       </Routes>
     </BrowserRouter >
   )

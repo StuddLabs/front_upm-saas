@@ -17,7 +17,11 @@ export default {
       black3: '#2D303A',
       purple1: '#6B5CC8',
       black3: '#2D303A',
-      white1: '#fff'
+      white1: '#fff',
+      red1: '#D74545',
+      yellow1: '#D4D745',
+      green1: '#40B16E',
+      blue1: '#406EB1',
     }
   },
   plugins: [],
