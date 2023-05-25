@@ -65,8 +65,15 @@ function Mobile_Table() {
                                         <p className={status_circle}></p>
                                         <p className={status_style}>{status}</p>
                                     </div>
-                                    <p className="text-base text-white1 font-normal">{point} / 1.0</p>
-                                    <p className="text-base text-white1 font-normal text-right ">{endDate}</p>
+                                    <p className="text-base text-white1 font-normal">{
+                                        Number.isInteger(point) ? point.toFixed(1) : point
+                                    } / 1.0</p>
+                                    <div className="justify-end flex gap-1">
+                                        <span className='text-base text-white1 font-normal'>{
+                                            (endDate.split('T')[0].substring(5)).replace(":", "/")
+                                        }</span>
+                                        <span className='text-base text-white1 font-normal'>{endDate.split('T')[1]}</span>
+                                    </div>
                                 </div>
                             )
                         })
