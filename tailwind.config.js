@@ -15,6 +15,7 @@ export default {
       black1: '#1F1F26',
       black2: '#292935',
       black3: '#2D303A',
+      black4: "#4E4E4E",
       purple1: '#6B5CC8',
       black3: '#2D303A',
       white1: '#fff',
@@ -22,7 +23,8 @@ export default {
       yellow1: '#D4D745',
       green1: '#40B16E',
       blue1: '#406EB1',
-      grey1: '#BABABA'
+      grey1: '#BABABA',
+      grey2: '#EAEAEA'
     }
   },
   plugins: [],

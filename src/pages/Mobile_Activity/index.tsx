@@ -39,7 +39,7 @@ function Activity() {
         <Wrapper>
             <nav className="flex justify-between pb-8 px-3">
                 <Button id="btn_back" backgroundImage={btn_back} href={"/Mobile_Table/" + _subject_id} />
-                <Button id="btn_edit" backgroundImage={btn_edit} href="/" />
+                <Button id="btn_edit" backgroundImage={btn_edit} href={"/Activity_Edit/" + _id} />
             </nav>
             <main className="flex flex-col flex-grow bg-black2 border-t border-transparent rounded-t-4xl">
                 <section className='py-5 px-6 grid grid-cols-2 gap-2'>

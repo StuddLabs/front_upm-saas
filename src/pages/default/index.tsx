@@ -1,5 +1,8 @@
 import tw from "tailwind-styled-components"
 
+// Icons
+// Components
+
 // Structure
 function page_name() {
     return (
