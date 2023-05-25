@@ -3,6 +3,7 @@ axios.defaults.baseURL = 'http://localhost:3000';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 import tw from "tailwind-styled-components"
+import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react';
 
 // Icons
@@ -11,9 +12,11 @@ import btn_statistics from "../../assets/icons/btn_statistics.svg"
 
 // Structure
 function Mobile_Table() {
+    let { sub_id } = useParams();
     const [res, setRes] = useState([])
     useEffect(() => {
-        axios.get('/subjectTable')
+        const path: any = sub_id ? "/subjectTable/" + sub_id : "/subjectTable"
+        axios.get(path)
             .then((response) => {
                 setRes(response.data)
             })
