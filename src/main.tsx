@@ -5,9 +5,6 @@ import './style/config.css'
 import './style/index.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-    <React.StrictMode>
-        {/* {localStorage.user ? <App isStart /> : <App />} */}
-        <App />
-    </React.StrictMode>
+    <App />
 )
 
