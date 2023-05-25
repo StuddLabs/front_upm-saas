@@ -3,11 +3,11 @@ axios.defaults.baseURL = 'http://localhost:3000';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 import tw from "tailwind-styled-components"
+import { useEffect, useState } from 'react';
 
 // Icons
 import btn_menu from "../../assets/icons/btn_menu.svg"
 import btn_statistics from "../../assets/icons/btn_statistics.svg"
-import { useEffect, useState } from 'react';
 
 // Structure
 function Mobile_Table() {
@@ -21,6 +21,9 @@ function Mobile_Table() {
                 console.log(error);
             })
     }, [])
+    if (res.length === 0) {
+        return null; // loading state
+    }
     const { id, title, prefix, acts }: any = res;
 
     return (
@@ -59,7 +62,7 @@ function Mobile_Table() {
                                     break;
                             }
                             return (
-                                <div className="grid grid-cols-2 gap-1 py-5 px-6 border-b border-black3">
+                                <a className="grid grid-cols-2 gap-1 py-5 px-6 border-b border-black3" href={'/Activity/' + id}>
                                     <p className="text-lg text-white1 font-medium">{title}</p>
                                     <div className="flex items-center gap-3 justify-end">
                                         <p className={status_circle}></p>
@@ -74,7 +77,7 @@ function Mobile_Table() {
                                         }</span>
                                         <span className='text-base text-white1 font-normal'>{endDate.split('T')[1]}</span>
                                     </div>
-                                </div>
+                                </a>
                             )
                         })
                     }

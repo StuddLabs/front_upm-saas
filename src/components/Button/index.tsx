@@ -18,6 +18,7 @@ const Button = styled.a<CSSProperties & HoverProps>`
   border-radius: ${props => props.borderRadius || '5px'};
   outline: none;
   cursor: pointer;
+  target:  ${props => props.target || '_self'};
 
   background: ${props => props.background || 'none'};
   background-repeat: ${props => props.backgroundRepeat || 'no-repeat'};
