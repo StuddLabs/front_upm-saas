@@ -1,6 +1,5 @@
 import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:3000';
-axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 import tw from "tailwind-styled-components"
 import { useParams } from "react-router-dom";
@@ -15,7 +14,7 @@ import Button from '../../components/Button';
 import Status from '../../components/Status';
 
 // Structure
-function Activity_Edit(prop: any) {
+function Activity_Edit() {
     let { id } = useParams();
 
     const [res, setRes] = useState([])
@@ -35,6 +34,41 @@ function Activity_Edit(prop: any) {
     let send_date = '2023-05-01'
     let end_date = '2023-05-10'
 
+    function save() {
+        const pv: any = document.querySelector("#point")
+        const dv: any = document.querySelector("#date")
+        const sv: any = document.querySelector("#status")
+
+        console.log(sv.value);
+        axios.post('/subjectTable/act/' + id, {
+            point: 0.2,
+            sendDate: "coiso",
+            status: "coiso"
+        }, {
+            headers: { 'content-type': 'text/json' }
+        })
+            .then(function (response) {
+                console.log(response);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        // axios.post('/subjectTable/act/' + id, {
+        //     point: +pv.value,
+        //     sendDate: (dv.value).replace(/-/g, ":") + "T" + sendDate.split("T")[1],
+        //     status: sv.value
+        // }, {
+        //     headers: { 'content-type': 'text/json' }
+        // })
+        //     .then(function (response) {
+        //         console.log(response);
+        //     })
+        //     .catch(function (error) {
+        //         console.log(error);
+        //     });
+    }
+
     return (
         <Wrapper>
             <nav className="flex justify-between pb-8 px-3">
@@ -49,7 +83,7 @@ function Activity_Edit(prop: any) {
                     <div>
                         <P>Point</P>
                         <div className='flex gap-6 items-center'>
-                            <Input type="number" placeholder={point} step={0.1} min={0.0} max={1} />
+                            <Input type="number" placeholder={point} step={0.1} min={0.0} max={1} id='point' />
                             <p className='text-black4'>/</p>
                             <p className='text-black4'>1.0</p>
                         </div>
@@ -58,14 +92,14 @@ function Activity_Edit(prop: any) {
                         <P>Date</P>
                         <div className='pl-3 flex gap-3 bg-grey2 rounded-lg h-11 w-full items-center'>
                             <img src={btn_date} className='h-6' />
-                            <input type="date" placeholder={sendDate} max="2023-05-10" className='bg-transparent w-full h-11 pl-3 text-black4' />
+                            <input type="date" pattern="d{2}-\d{2}" max="2023-05-10" className='bg-transparent w-full h-11 pl-3 text-black4' id='date' />
                         </div>
                     </div>
                     <div>
                         <P>Status</P>
                         <div className='pl-3 pr-3 flex gap-3 bg-grey2 rounded-lg h-11 w-full items-center'>
                             <Status prop={status} />
-                            <select className='text-right w-full' placeholder={status}>
+                            <select className='text-right w-full' placeholder={status} id='status'>
                                 <option value="To do">To do</option>
                                 <option value="Alert">Alert</option>
                                 <option value="Done">Done</option>
@@ -75,7 +109,7 @@ function Activity_Edit(prop: any) {
                     </div>
                 </section>
                 <section className='py-5 px-6 w-full flex justify-center'>
-                    <button className='bg-purple1 w-32 h-12 rounded-lg text-white1'>Save</button>
+                    <button className='bg-purple1 w-32 h-12 rounded-lg text-white1' onClick={save}>Save</button>
                 </section>
             </main>
         </Wrapper>
