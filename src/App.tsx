@@ -23,8 +23,8 @@ function App(props: AppProps) {
 
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Page_name />} />
-        <Route path="/Mobile_Table">
+        <Route path="/" element={<Mobile_Table />} />
+        <Route path="/Mobile_Table" element={<Mobile_Table />} >
           <Route path=":sub_id" element={<Mobile_Table />} />
         </Route>
         <Route path="/Activity">
