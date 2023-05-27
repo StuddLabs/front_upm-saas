@@ -9,6 +9,10 @@ import { useEffect, useState } from 'react';
 // Icons
 import btn_menu from "../../assets/icons/btn_menu.svg"
 import btn_statistics from "../../assets/icons/btn_statistics.svg"
+import Button from '../../components/Button';
+import Status from '../../components/Status';
+import Date from '../../components/Date';
+import Point from '../../components/Point';
 
 // Structure
 function Mobile_Table() {
@@ -32,8 +36,8 @@ function Mobile_Table() {
     return (
         <Wrapper>
             <nav className="flex justify-between pb-8 px-3">
-                <img src={btn_menu} />
-                <img src={btn_statistics} />
+                <Button backgroundImage={btn_menu} href="#" />
+                <Button backgroundImage={btn_statistics} href="#" />
             </nav>
             <main className="flex flex-col flex-grow">
                 <section className="pb-7 px-3">
@@ -44,42 +48,14 @@ function Mobile_Table() {
                     {
                         acts.map((el: any) => {
                             const { id, title, point, status, endDate } = el;
-                            let status_circle = ""
-                            let status_style = ""
-                            switch (status) {
-                                case "Done":
-                                    status_circle = "w-2.5 h-2.5 bg-green1 text-transparent rounded-full"
-                                    status_style = "text-base text-green1 font-normal"
-                                    break;
-                                case "Alert":
-                                    status_circle = "w-2.5 h-2.5 bg-yellow1 text-transparent rounded-full"
-                                    status_style = "text-base text-yellow1 font-normal"
-                                    break;
-                                case "Finished":
-                                    status_circle = "w-2.5 h-2.5 bg-red1 text-transparent rounded-full"
-                                    status_style = "text-base text-red1 font-normal"
-                                    break;
-                                default:
-                                    status_circle = "w-2.5 h-2.5 bg-blue1 text-transparent rounded-full"
-                                    status_style = "text-base text-blue1 font-normal"
-                                    break;
-                            }
                             return (
                                 <a className="grid grid-cols-2 gap-1 py-5 px-6 border-b border-black3" href={'/Activity/' + id}>
                                     <p className="text-lg text-white1 font-medium">{title}</p>
-                                    <div className="flex items-center gap-3 justify-end">
-                                        <p className={status_circle}></p>
-                                        <p className={status_style}>{status}</p>
+                                    <Status prop={status} />
+                                    <div className='flex justify-start'>
+                                        <Point prop={point} />
                                     </div>
-                                    <p className="text-base text-white1 font-normal">{
-                                        Number.isInteger(point) ? point.toFixed(1) : point
-                                    } / 1.0</p>
-                                    <div className="justify-end flex gap-1">
-                                        <span className='text-base text-white1 font-normal'>{
-                                            (endDate.split('T')[0].substring(5)).replace(":", "/")
-                                        }</span>
-                                        <span className='text-base text-white1 font-normal'>{endDate.split('T')[1]}</span>
-                                    </div>
+                                    <Date prop={endDate} />
                                 </a>
                             )
                         })

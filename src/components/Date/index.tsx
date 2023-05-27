@@ -7,10 +7,10 @@ function Date(prop: any) {
     const date = prop.prop;
     return (
         <Wrapper>
-            <span className='text-sm  text-white1 font-medium'>
+            <span className='text-sm text-white1 font-normal'>
                 {(date.split('T')[0].substring(5)).replace(":", "/")}
             </span>
-            <span className='text-sm  text-white1 font-medium'>{date.split('T')[1]}</span>
+            <span className='text-sm text-white1 font-normal'>{date.split('T')[1]}</span>
         </Wrapper>
     )
 }
