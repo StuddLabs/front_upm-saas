@@ -40,7 +40,7 @@ function Statistics() {
         <Wrapper>
             <nav className="flex justify-between pb-8 px-3">
                 <Button id="btn_back" backgroundImage={btn_back} href={"/Mobile_Table/" + sub_id} />
-                <Button id="btn_edit" backgroundImage={btn_edit} href={"/#/"} />
+                <Button id="btn_edit" backgroundImage={btn_edit} href={"/Statistics_Edit/" + sub_id} />
             </nav>
             <main className="flex flex-col flex-grow bg-white1 border-t border-transparent rounded-t-4xl">
                 <section className="pt-5 pb-9 px-6">
