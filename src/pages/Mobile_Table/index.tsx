@@ -37,7 +37,7 @@ function Mobile_Table() {
         <Wrapper>
             <nav className="flex justify-between pb-8 px-3">
                 <Button backgroundImage={btn_menu} href="#" />
-                <Button backgroundImage={btn_statistics} href="#" />
+                <Button backgroundImage={btn_statistics} href={"/Statistics/" + id} />
             </nav>
             <main className="flex flex-col flex-grow">
                 <section className="pb-7 px-3">

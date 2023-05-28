@@ -4,11 +4,10 @@ import {
   Routes
 } from 'react-router-dom';
 
-import Page_name from './pages/default';
 import Mobile_Table from './pages/Mobile_Table';
 import Activity from './pages/Mobile_Activity';
 import Activity_Edit from './pages/Mobile_Activity_Edit';
-
+import Statistics from './pages/Mobile_Statistics';
 
 type AppProps = {
   isStart?: boolean
@@ -32,6 +31,9 @@ function App(props: AppProps) {
         </Route>
         <Route path="/Activity_Edit">
           <Route path=":id" element={<Activity_Edit />} />
+        </Route>
+        <Route path="/Statistics">
+          <Route path=":sub_id" element={<Statistics />} />
         </Route>
       </Routes>
     </BrowserRouter >
