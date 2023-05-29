@@ -9,6 +9,7 @@ import Activity from './pages/Mobile_Activity';
 import Activity_Edit from './pages/Mobile_Activity_Edit';
 import Statistics from './pages/Mobile_Statistics';
 import Statistics_Edit from './pages/Mobile_Statistics_Edit';
+import Menu from './pages/Mobile_Menu';
 
 type AppProps = {
   isStart?: boolean
@@ -24,6 +25,10 @@ function App(props: AppProps) {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Mobile_Table />} />
+        <Route path="/Menu" >
+          <Route path=":sub_id" element={<Menu />} />
+        </Route>
+
         <Route path="/Mobile_Table" element={<Mobile_Table />} >
           <Route path=":sub_id" element={<Mobile_Table />} />
         </Route>
